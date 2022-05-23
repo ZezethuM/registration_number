@@ -8,18 +8,25 @@
     <link rel="stylesheet" href="./registration_number.css">
 </head>
 <body>
-        <form>
+        <div class="container">
             <img src="images/car.jpeg" alt="">
-            <p>Registration Number</p>
+            <p>What's my </p>
+            <p>Registration Number?</p>
             <label>
                 <input type="text" class="regNo" placeholder="Enter registration number."/>
                 <button class="btn">Add</button>
             </label>
+            <span class="invalidString">mHJKJ</span>
             <div class="regs">
-                Myb regs
             </div>
-        </form> 
+            <select name="city">
+                <option value="capet">Cape town</option>
+                <option value="capet">Mthatha</option>
+                <option value="capet">JHB</option>
+                <option value="capet">Gqeberha</option>
+            </select>
+        </div>
+        <script src="js/FactoryRegs.js" charset="utf-8"></script>
         <script src="js/registration_number.js" charset="utf-8"></script>
-        <!-- <script src="js/greet.js" charset="utf-8"></script> -->
 </body>
 </html>
