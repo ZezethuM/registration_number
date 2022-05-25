@@ -13,18 +13,23 @@
             <p>What's my </p>
             <p>Registration Number?</p>
             <label>
-                <input type="text" class="regNo" placeholder="Enter registration number."/>
+                <input type="text" class="regNo" placeholder="e.g CA 14526"/>
                 <button class="btn">Add</button>
             </label>
-            <span class="invalidString">mHJKJ</span>
+            <span class="invalidString"> </span>
             <div class="regs">
             </div>
-            <select name="city">
-                <option value="capet">Cape town</option>
-                <option value="capet">Mthatha</option>
-                <option value="capet">JHB</option>
-                <option value="capet">Gqeberha</option>
+            <div class="clear">
+            <select class="city" onchange="getSelectedForTown();">
+                <option value="" selected >Towns</option>
+                <option value="CA">Cape town</option>
+                <option value="XA">Mthatha</option>
+                <option value="GP">JHB</option>
+                <option value="EC">Gqeberha</option>
             </select>
+                <button class="button" onclick="clearRegistrations();">Clear</button>
+        </div>
+
         </div>
         <script src="js/FactoryRegs.js" charset="utf-8"></script>
         <script src="js/registration_number.js" charset="utf-8"></script>

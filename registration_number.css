@@ -22,7 +22,7 @@ input[type="text"]
 img{
     margin-top: 0;
 }
-button
+.btn
 {
     position: absolute;
     top: 0;
@@ -44,7 +44,7 @@ button
 }
 .regs{
     background: salmon;
-    width: 300px;
+    width: 350px;
     height: 100px;
     margin-top: 50px;
 
@@ -53,10 +53,33 @@ li
 {
     background-color: yellow;
     border: 2px solid black;
-    border-radius: 20px;
+    color: red;
+    border-radius: 5px;
     width: 70px;
+    height: 20px;
     list-style: none;
     text-align: center;
     float: left;
-    margin: 5px;
+    margin: 10px;
+    font-size: 12px;
+    padding-top: 10px;
+}
+select{
+    background-color: salmon;
+    width: 100px;
+    height: 30px;
+    
+    
+}
+.button{
+    background-color: salmon;
+    width: 100px;
+    height: 30px;
+    
+    
+
+}
+.clear{
+    margin-top: 50px;
+    
 }
