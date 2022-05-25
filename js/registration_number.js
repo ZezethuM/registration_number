@@ -2,7 +2,7 @@ const inputElement = document.querySelector('.regNo');
 const addBtn = document.querySelector('.btn');
 const printElement = document.querySelector(".regs");
 const invalidRegs = document.querySelector('.invalidString');
-let selectedTown = document.querySelector('.city');
+const selectedTown = document.querySelector('.city');
 
 let array = localStorage.getItem("regiNumbers") ? JSON.parse(localStorage.getItem("regiNumbers")) : [];
 
@@ -32,14 +32,14 @@ inputElement.onkeyup = function(){
 addBtn.addEventListener('click', function(){
     
     let regeX = /[XA|CA|ZN|GP|L]{2}\s[Ndlovu]+|[XA|CA|ZN|GP|L]{2}\s[0-9]{5}/gi;
-
+    
     let registrationNo = inputElement.value.toUpperCase();
     
     if(regeX.test(registrationNo) && registrationNo){
             array.push(registrationNo);   
             localStorage.setItem('regiNumbers',JSON.stringify(array));
             let list = document.createElement('li');
-            list.textContent = array[i];
+            list.textContent = registrationNo;
             printElement.appendChild(list);
     }
     else {
@@ -50,20 +50,19 @@ addBtn.addEventListener('click', function(){
 
     }
     inputElement.value = "";
-       
 });
 
+    let registrationValue = inputElement.value
 function getSelectedForTown(){
-   array.filter((values) =>{
-       if(values.startsWith(selectedTown.value)){
-           return values;
+   array.filter((registrationValue) =>{
+       if(registrationValue.startsWith(selectedTown.value)){
+           return registrationValue;
         }
-        console.log(values);
+        
    });
 }
-
 function clearRegistrations(){
-    localStorage.clear();
     let list = document.querySelector('li');
     list.remove();
+    localStorage.clear();
 }
