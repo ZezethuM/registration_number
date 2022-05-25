@@ -5,6 +5,7 @@ const invalidRegs = document.querySelector('.invalidString');
 const selectedTown = document.querySelector('.city');
 
 let array = localStorage.getItem("regiNumbers") ? JSON.parse(localStorage.getItem("regiNumbers")) : [];
+addRegistration(array);
 
 for(i = 0; i < array.length; i++){
     let list = document.createElement('li');
@@ -29,7 +30,8 @@ inputElement.onkeyup = function(){
         }, 7000);
     }
 }
-addBtn.addEventListener('click', function(){
+// addBtn.addEventListener('click', function()
+function addRegistration(){
     
     let regeX = /[XA|CA|ZN|GP|L]{2}\s[Ndlovu]+|[XA|CA|ZN|GP|L]{2}\s[0-9]{5}/gi;
     
@@ -50,17 +52,23 @@ addBtn.addEventListener('click', function(){
 
     }
     inputElement.value = "";
-});
+};
 
-    let registrationValue = inputElement.value
 function getSelectedForTown(){
-   array.filter((registrationValue) =>{
-       if(registrationValue.startsWith(selectedTown.value)){
-           return registrationValue;
-        }
-        
+    let newArray =  array.filter((registrationValue) =>{
+       return registrationValue.startsWith(selectedTown.value);
    });
+   if(newArray){
+       printElement.innerHTML = "";
+       for(i = 0; i < newArray.length; i++){
+           let list = document.createElement('li');
+           list.textContent = newArray[i];
+           printElement.appendChild(list); 
+        }
+   }
+   return newArray;
 }
+
 function clearRegistrations(){
     let list = document.querySelector('li');
     list.remove();
