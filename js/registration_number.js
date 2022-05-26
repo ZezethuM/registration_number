@@ -13,7 +13,7 @@ for(i = 0; i < array.length; i++){
     printElement.appendChild(list);
 }
 inputElement.onkeyup = function(){
-    let regeX = /[XA|CA|EC|GP|L]{2}\s[Ndlovu]+|[XA|CA|EC|GP|L]{2}\s[0-9]{5}/gi;
+    let regeX = /[XA|CA|EC|GP|L]{2}\s[Ndlovu]+|[XA|CA|EC|GP|L]{2}(\s|\-)[0-9]{3}(\s|\-)[0-9]{3}/gi;
 
     if(regeX.test(inputElement.value)){
         invalidRegs.innerText = "You entered a valid name";

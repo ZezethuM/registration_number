@@ -1,19 +1,30 @@
-// function registrationNumber(){
-//     let array = [];
-//     let regeX = /[a-zA-Z]\s[0-9]{5}/g;
+function registrationNumber(){
+    let array = [];
+    let regeX = /[XA|CA|EC|GP|L]{2}\s[Ndlovu]+|[XA|CA|EC|GP|L]{2}(\s|\-)[0-9]{3}(\s|\-)[0-9]{3}/gi;
 
-//     function storedRegistrationNo(registrationNo){
-//         if(!array.includes(registrationNo)){
-//             array.push(registrationNo);
-//         }
-//     }
-//     function getStoredRegistrationNo(){
-//         return array;
-//     }
+    function checkRegistrationNo(registrationNo){
+      if(array.includes(registrationNo)){
+          array.push(registrationNo)
+    }
+    else{
+        return "Already exists"
+    }
+    return array;
+    }
 
-//     return{
-//         storedRegistrationNo,
-//         getStoredRegistrationNo
-//     }
+    function validation(registrationNo){
+        if(regeX.test(registrationNo)){
+            array.push(registrationNo);
+        }
+        else{
+            return "please enter a valid reg"  
+        }
+        return array;
+    }
 
-// }
+    return{
+        checkRegistrationNo,
+        validation
+    }
+
+}
