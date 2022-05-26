@@ -4,8 +4,8 @@ const printElement = document.querySelector(".regs");
 const invalidRegs = document.querySelector('.invalidString');
 const selectedTown = document.querySelector('.city');
 
+const numberPlates = registrationNumber();
 let array = localStorage.getItem("regiNumbers") ? JSON.parse(localStorage.getItem("regiNumbers")) : [];
-addRegistration(array);
 
 for(i = 0; i < array.length; i++){
     let list = document.createElement('li');
@@ -37,12 +37,17 @@ function addRegistration(){
     let registrationNo = inputElement.value.toUpperCase();
     
     if(regeX.test(registrationNo) && registrationNo){
-            array.push(registrationNo);   
-            localStorage.setItem('regiNumbers',JSON.stringify(array));
-            let list = document.createElement('li');
-            list.textContent = registrationNo;
-            printElement.appendChild(list);
+            if(array.includes(registrationNo)){
+                invalidRegs.innerHTML = "Already exist"
+            }else{
+                array.push(registrationNo);   
+                localStorage.setItem('regiNumbers',JSON.stringify(array));
+                let list = document.createElement('li');
+                list.textContent = registrationNo;
+                printElement.appendChild(list);
+            }
     }
+    
     else {
         invalidRegs.innerHTML = "Invalid registration number";
         setTimeout(() => {
